@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8"/>
+<head>
+	<title>front-end</title>
+</head>
+<body>
+
+<h1>Input</h1>
+<hr/>
+
+<label for="row">Broj redaka:</label> </br>
+<input type="number" id="row"> </br></br>
+<label for="column">Broj stupaca:</label></br>
+<input type="number" id="column"></br></br>
+<input type="button" id="btn" value="KREIRAJ TABLICU" onclick="kreirajTablicu();">
+<input type="button" id="rst" value="RESETUJ" onclick="resetuj();">
+
+<h1>Output</h1>
+<hr/>
+
+<div id="prikaz"></div>
+
+
+<script>
+
+
+function kreirajTablicu() {
+
+let rows = document.getElementById("row").value;
+let columns = document.getElementById("column").value;
+let counter = 0;
+let prikaz = document.getElementById("prikaz");
+
+if (rows == 0 || columns == 0)
+	alert("Please specify number greater than 0.");
+
+
+for(let i = 1; i <= rows; i++) {
+		let br = document.createElement("br");
+		let br2 = document.createElement("br");
+		prikaz.appendChild(br);
+		prikaz.appendChild(br2);
+	
+		
+
+for(let j = 1; j <= columns; j++) {
+		counter++;
+		let broj = document.createElement("div");
+		broj.style = "display:inline; background-color:lightgrey; padding:7px; margin-left:25px;";
+		broj.innerHTML = counter;
+		prikaz.appendChild(broj);
+	}
+	
+}
+
+
+}
+
+function resetuj() {
+	location.reload(); 
+}
+
+</script>
+
+</body>
+</html>
